@@ -5,6 +5,9 @@
   "main": "",
   "author": "",
   "license": "",
-  "dependencies": {}
+  "dependencies": {
+    "@rnoh/react-native-openharmony": "^0.77.33"
+  },
+  "devDependencies": {},
+  "dynamicDependencies": {}
 }
-

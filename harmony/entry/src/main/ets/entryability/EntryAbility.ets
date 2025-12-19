@@ -1,11 +1,13 @@
 import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { hilog } from '@kit.PerformanceAnalysisKit';
 import { window } from '@kit.ArkUI';
+import { RNAbility } from '@rnoh/react-native-openharmony';
 
 const DOMAIN = 0x0000;
 
-export default class EntryAbility extends UIAbility {
-  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+export default class EntryAbility extends RNAbility {
+  onCreate(want: Want): void {
+    super.onCreate(want);
     try {
       this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
     } catch (err) {
@@ -13,6 +15,12 @@ export default class EntryAbility extends UIAbility {
     }
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onCreate');
   }
+
+  getPagePath() {
+    hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability getPagePath called');
+    return 'pages/Index';
+  }
+
 
   onDestroy(): void {
     hilog.info(DOMAIN, 'testTag', '%{public}s', 'Ability onDestroy');

@@ -3,6 +3,18 @@
 Shiply RN热更新SDK接入使用Demo，Shiply访问地址：https://shiply.tds.qq.com/
 
 
+
+# 鸿蒙端使用说明
+
+1. 使用DevEco-Studio打开ShiplyReactNativeUpgradeDemo/harmony目录;
+2. 参考[鸿蒙端环境搭建](https://gitcode.com/openharmony-sig/ohos_react_native/blob/master/docs/zh-cn/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)，点击 File > Project Structure，在弹窗界面点击 Signing Configs，勾选 Support HarmonyOS 和 Automatically generate signature，然后点击 Sign In 登录华为账号，并签名。
+3. 在 entry 目录下执行以下命令： ` ohpm i @rnoh/react-native-openharmony `
+
+
+
+
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
