@@ -19,3 +19,12 @@ buildscript {
         classpath("com.facebook.react:react-native-gradle-plugin")
     }
 }
+
+
+allprojects {
+  repositories {
+    mavenCentral()
+    google()
+    maven { url "https://maven.cnb.cool/tencent-tds/shiply-public/-/packages/" }
+  }
+}

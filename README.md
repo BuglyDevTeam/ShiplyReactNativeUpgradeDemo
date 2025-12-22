@@ -3,7 +3,7 @@
 Shiply RN热更新SDK接入使用Demo，Shiply访问地址：https://shiply.tds.qq.com/
 
 1. 在Shiply平台创建项目，项目下分别创建Android/iOS/Harmony产品，具体操作可以参考 https://shiply.tds.qq.com/document/getting-started-guide/integration-process/ ；
-2. 在项目RN动态化创建RN模块，模块名称为testRNExample，绑定第一步创建的三个不同平台的产品，具体操作可以参考 https://shiply.tds.qq.com/document/react-native-hot-reload/quick-start/ ；
+2. 在项目RN动态化创建RN模块，模块名称为 testRNExample，绑定第一步创建的三个不同平台的产品，具体操作可以参考 https://shiply.tds.qq.com/document/react-native-hot-reload/quick-start/ ；
 3. 在项目根目录创建config.json文件，文件内容如下：
 ```json
 {
