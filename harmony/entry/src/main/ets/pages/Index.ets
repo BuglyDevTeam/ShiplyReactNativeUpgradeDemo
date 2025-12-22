@@ -11,6 +11,7 @@ import {
   RNOHCoreContext
 } from '@rnoh/react-native-openharmony';
 import { createRNPackages } from '../RNPackagesFactory';
+import { ShiplyFileJSBundleProvider } from 'ohrn_shiply_upgrade';
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {}
@@ -62,6 +63,9 @@ struct Index {
           },
           jsBundleProvider: new TraceJSBundleProviderDecorator(
             new AnyJSBundleProvider([
+              // 热更新 Bundle Provider（放在最前面，优先加载）
+              // 'resId' 参数是你在 Shiply 平台配置的资源 ID
+              new ShiplyFileJSBundleProvider(this.rnohCoreContext.uiAbilityContext, 'testRNExample'),
               new MetroJSBundleProvider(),
               // NOTE: to load the bundle from file, place it in
               // `/data/app/el2/100/base/com.rnoh.tester/files/bundle.harmony.js`

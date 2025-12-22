@@ -27,6 +27,10 @@
   },
   "modules": [
     {
+      "name": "ohrn_shiply_upgrade",
+      "srcPath": "../node_modules/rn-shiply-upgrade/harmony/shiply_react_native_upgrade"
+    },
+    {
       "name": "entry",
       "srcPath": "./entry",
       "targets": [

@@ -6,7 +6,8 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@rnoh/react-native-openharmony": "0.72.96"
+    "@rnoh/react-native-openharmony": "0.72.96",
+    "ohrn_shiply_upgrade": "file:../../node_modules/rn-shiply-upgrade/harmony/shiply_react_native_upgrade"
   },
   "devDependencies": {},
   "dynamicDependencies": {}

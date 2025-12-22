@@ -126,3 +126,4 @@ pids/
 Thumbs.db
 
 .package-lock.json
+config.json

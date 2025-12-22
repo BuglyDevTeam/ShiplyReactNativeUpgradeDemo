@@ -1,118 +1,65 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import { Text, View, Image, Platform } from 'react-native';
+import { HotUpdateHelper, HotUpdateButton } from 'rn-shiply-upgrade'; // 新增导入辅助类
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const AppV2 = () => {
+  // 打印当前的平台值
+  console.log(`currentPlatform: ${Platform.OS}`);
+  // 初始化热更新配置（只需一次）
+  HotUpdateHelper.getInstance({
+    appId: Platform.select({
+      ios: require('./config.json').ios.appId,
+      android: require('./config.json').android.appId,
+      harmony: require('./config.json').harmony.appId
+    }),
+    appKey: Platform.select({
+      ios: require('./config.json').ios.appKey,
+      android: require('./config.json').android.appKey,
+      harmony: require('./config.json').harmony.appKey
+    }),
+    deviceId: '866123456789012',
+    appVersion: '10.0.0',
+    updateCheckIntervalLimit: 60 * 1000, // 60秒限制
+    isDebugPackage: false,
+    customParamsByJson: JSON.stringify({ age: '22', name: 'testName' }),
+    env: 'online',
+    shiplyResName: 'testRNExample',
+    eventLogger: ({ type, data }) => {
+      console.log(`[HotUpdate] ${type}:`, data);
+    }
+  });
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <Text>0.72RN Default Demo 1219 </Text>
+        <Text>Hello World 111 local,show dog</Text>
+        {/*<Text>Hello World remote,show panda</Text>*/}
+        <Image
+            source={require('./dog.jpeg')}
+            // source={require('./panda.jpg')}
+            style={{ width: 200, height: 200 }}
+        />
+        <Text style={{ fontSize: 20, marginBottom: 20 }}>热更新示例V2</Text>
+
+        {/* 默认样式按钮 */}
+        <HotUpdateButton />
+
+        {/* 自定义样式按钮示例 */}
+        <HotUpdateButton config={{
+          buttonStyle: {
+            backgroundColor: '#4CAF50',
+            padding: 20,
+            borderRadius: 10,
+            marginTop: 20
           },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
+          buttonTextStyle: {
+            color: 'white',
+            fontSize: 18
           },
-        ]}>
-        {children}
-      </Text>
-    </View>
+          loadingColor: '#FFEB3B',
+          buttonText: '立即检查更新'
+        }} />
+      </View>
   );
-}
+};
 
-function App(): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
-
-export default App;
+export default AppV2;

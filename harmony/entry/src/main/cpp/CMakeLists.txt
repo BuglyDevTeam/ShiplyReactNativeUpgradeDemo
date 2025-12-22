@@ -18,4 +18,7 @@ add_library(rnoh_app SHARED
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
 
+add_subdirectory("${OH_MODULE_DIR}/ohrn_shiply_upgrade/src/main/cpp" ./shiply_upgrade)
+target_link_libraries(rnoh_app PUBLIC rnoh_shiply_upgrade)
+
 target_link_libraries(rnoh_app PUBLIC rnoh)

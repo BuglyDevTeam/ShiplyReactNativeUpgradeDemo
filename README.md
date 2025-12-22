@@ -2,96 +2,34 @@
 # ShiplyReactNativeUpgradeDemo
 Shiply RN热更新SDK接入使用Demo，Shiply访问地址：https://shiply.tds.qq.com/
 
+1. 在Shiply平台创建项目，项目下分别创建Android/iOS/Harmony产品，具体操作可以参考 https://shiply.tds.qq.com/document/getting-started-guide/integration-process/ ；
+2. 在项目RN动态化创建RN模块，模块名称为testRNExample，绑定第一步创建的三个不同平台的产品，具体操作可以参考 https://shiply.tds.qq.com/document/react-native-hot-reload/quick-start/ ；
+3. 在项目根目录创建config.json文件，文件内容如下：
+```json
+{
+   "ios": {
+      "appId": "xx",
+      "appKey": "xxxx"
+   },
+   "android": {
+      "appId": "xx",
+      "appKey": "xxxx"
+   },
+   "harmony": {
+      "appId": "xx",
+      "appKey": "xxxx"
+   }
+}
+```
+ appId/appKey替换为第一步创建的各个产品的实际值；
+4. 修改App.tsx文件内容，编译出不同平台的RN产物，并上传到Shiply平台；
 
 
 # 鸿蒙端使用说明
 
-1. 使用DevEco-Studio打开ShiplyReactNativeUpgradeDemo/harmony目录;
-2. 参考[鸿蒙端环境搭建](https://gitcode.com/openharmony-sig/ohos_react_native/blob/master/docs/zh-cn/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)，点击 File > Project Structure，在弹窗界面点击 Signing Configs，勾选 Support HarmonyOS 和 Automatically generate signature，然后点击 Sign In 登录华为账号，并签名。
-3. 在 entry 目录下执行以下命令： ` ohpm i @rnoh/react-native-openharmony `
+使用DevEco-Studio打开ShiplyReactNativeUpgradeDemo/harmony目录;
 
 
 
 
-
-
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
-
-# Getting Started
-
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
-
-## Step 1: Start the Metro Server
-
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
 
